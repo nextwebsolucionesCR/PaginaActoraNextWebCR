@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía | Laura Zeledón</title>
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Inline specific styles for Biography Scrollytelling */
+        .bio-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/hero/hero3.jpg');
+            /* Reuse existing asset */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .story-section {
+            padding: var(--spacing-xl) 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .story-section.reverse {
+            direction: rtl;
+            /* Visual trick for zig-zag */
+        }
+
+        .story-section.reverse .story-text {
+            direction: ltr;
+            /* Reset text direction */
+        }
+
+        .story-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .story-img {
+            transition: transform 1s ease;
+            filter: grayscale(100%);
+        }
+
+        .story-img-wrapper:hover .story-img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .story-text h3 {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-box {
+            background-color: var(--color-secondary);
+            padding: var(--spacing-lg);
+            border-left: 3px solid var(--color-primary);
+            margin: var(--spacing-lg) 0;
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .story-section,
+            .story-section.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                text-align: left;
+                gap: var(--spacing-md);
+            }
+
+            .bio-hero {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav (Same as Index) -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">LAURA ZELEDÓN</a>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="biografia.html" class="nav-link active">Biografía</a></li>
+                <li><a href="filmografia.html" class="nav-link">Filmografía</a></li>
+                <li><a href="teatros.html" class="nav-link">Teatros</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bio Hero -->
+    <header class="bio-hero">
+        <div class="container animate-on-scroll">
+            <h1>El Arte de <span class="italic-accent">Ser Otros</span></h1>
+            <p>Un viaje a través de las emociones humanas</p>
+        </div>
+    </header>
+
+    <!-- Sticky Editorial Main Content -->
+    <main class="container bio-editorial-container">
+
+        <!-- Sticky Visuals (Left) -->
+        <aside class="bio-visuals">
+            <div class="sticky-wrapper">
+                <!-- Images are stacked absolutely -->
+                <img src="img/acciones/alegria.jpg" alt="Retrato Alegría" class="bio-img active" id="img-1">
+                <img src="img/acciones/gritando.jpg" alt="Retrato Fuerza" class="bio-img" id="img-2">
+                <img src="img/acciones/lamento.jpg" alt="Retrato Profundidad" class="bio-img" id="img-3">
+                <img src="img/acciones/plenitud.jpg" alt="Retrato Plenitud" class="bio-img" id="img-4">
+            </div>
+        </aside>
+
+        <!-- Narrative Flow (Right) -->
+        <article class="bio-narrative">
+
+            <!-- Chapter 1 -->
+            <section class="bio-chapter" data-target="img-1">
+                <span class="chapter-number">01</span>
+                <h2>El Despertar</h2>
+                <p>Nací en San José, rodeada de una familia donde la música y la poesía eran el pan de cada día. Mi
+                    primer encuentro con el escenario no fue planeado; a los 8 años, sustituí a una compañera enferma en
+                    la obra escolar.</p>
+                <p>Ese día, bajo las luces rudimentarias del gimnasio, sentí una electricidad que nunca me abandonó. La
+                    alegría pura de conectar con una audiencia se convirtió en mi brújula. No actuaba para ser vista,
+                    sino para sentir intensamente.</p>
+            </section>
+
+            <blockquote class="bio-quote">
+                "El actor es un atleta del corazón."
+            </blockquote>
+
+            <!-- Chapter 2 -->
+            <section class="bio-chapter" data-target="img-2">
+                <span class="chapter-number">02</span>
+                <h2>La Fuerza</h2>
+                <p>Mi formación académica en la Escuela de Artes Dramáticas fue rigurosa. Allí aprendí que la emoción
+                    sin control es efímera. Descubrí el poder de la voz, el grito visceral que rompe el silencio y la
+                    disciplina del cuerpo.</p>
+                <p>Interpretar papeles trágicos me enseñó a canalizar la ira y el dolor, transformando mis propias
+                    experiencias en herramientas para dar vida a personajes complejos y atormentados.</p>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section class="bio-chapter" data-target="img-3">
+                <span class="chapter-number">03</span>
+                <h2>La Sombra</h2>
+                <p>El teatro no es solo luz. Mis roles más desafiantes han sido aquellos que exploran la pérdida y el
+                    lamento. En "La Casa de Bernarda Alba", encarnar la represión me obligó a mirar hacia adentro.</p>
+                <p>Creo firmemente que para actuar la luz, uno debe conocer su propia sombra. Cada lágrima en escena es
+                    un tributo a la fragilidad humana que todos compartimos.</p>
+            </section>
+
+            <!-- Chapter 4 -->
+            <section class="bio-chapter" data-target="img-4">
+                <span class="chapter-number">04</span>
+                <h2>Plenitud</h2>
+                <p>Hoy, con más de 15 años de carrera, busco papeles que desafíen el status quo. La actuación ya no es
+                    solo una carrera, es mi forma de activismo y de sanación.</p>
+                <p>Encuentro la plenitud en los momentos de silencio antes de que se abra el telón, y en la conexión
+                    invisible que se teje con cada espectador. Mi misión es seguir contando las historias que merecen
+                    ser escuchadas.</p>
+            </section>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">LAURA ZELEDÓN</div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Laura Zeledón. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;"><a href="privacidad.html"
+                    style="text-decoration: underline;">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/50600000000" target="_blank" class="fab fab--whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50600000000" class="fab fab--phone" aria-label="Llamar">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69633d7c987b03197cb20051/1jelqgcbd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge">
+        <img src="img/logo.png" alt="NextWeb CR Logo">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/anti-inspection.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laura Zeledón | Actriz Costarricense</title>
+    <meta name="description"
+        content="Portfolio oficial de Laura Zeledón, actriz profesional de Costa Rica. Biografía, Filmografía, Teatro y Contacto.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">LAURA ZELEDÓN</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li><a href="biografia.html" class="nav-link">Biografía</a></li>
+                <li><a href="filmografia.html" class="nav-link">Filmografía</a></li>
+                <li><a href="teatros.html" class="nav-link">Teatros</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <header class="hero">
+        <div class="hero-carousel">
+            <!-- Video Slide -->
+            <div class="hero-slide active">
+                <video autoplay muted playsinline class="hero-media">
+                    <source src="video/herovideo1.mp4" type="video/mp4">
+                </video>
+                <div class="hero-content">
+                    <h1 class="reveal-mask">Laura Zeledón: El Alma en <span class="italic-accent">Escena</span></h1>
+                    <p class="reveal-mask">Actriz · Creadora · Narradora</p>
+                    <a href="filmografia.html" class="btn btn-secondary magnetic-btn reveal-mask"
+                        style="margin-top: 2rem; background-color: rgba(5, 10, 20, 0.6); backdrop-filter: blur(4px);">Filmografía</a>
+                </div>
+            </div>
+            <!-- Image Slide 1 (Hidden logic in JS) -->
+            <div class="hero-slide">
+                <img src="img/hero/hero1.jpg" alt="Laura Zeledón Actuando" class="hero-media">
+                <div class="hero-content">
+                    <h1 class="reveal-mask">Cada Personaje, Una Nueva <span class="italic-accent">Verdad</span></h1>
+                    <a href="biografia.html" class="btn btn-secondary magnetic-btn reveal-mask"
+                        style="margin-top: 2rem; background-color: rgba(5, 10, 20, 0.6); backdrop-filter: blur(4px);">Biografía</a>
+                </div>
+            </div>
+            <!-- Image Slide 2 -->
+            <div class="hero-slide">
+                <img src="img/hero/hero2.jpg" alt="Laura Zeledón Retrato" class="hero-media">
+                <div class="hero-content">
+                    <h1 class="reveal-mask">Donde la Emoción Encuentra su <span class="italic-accent">Voz</span></h1>
+                    <a href="#contacto" class="btn btn-secondary magnetic-btn reveal-mask"
+                        style="margin-top: 2rem; background-color: rgba(5, 10, 20, 0.6); backdrop-filter: blur(4px);">Colaborar</a>
+                </div>
+            </div>
+            <!-- Image Slide 3 -->
+            <div class="hero-slide">
+                <img src="img/hero/hero3.jpg" alt="Laura Zeledón Escenario" class="hero-media">
+                <div class="hero-content">
+                    <h1 class="reveal-mask">Del Tablado al Lente: Sin <span class="italic-accent">Fronteras</span></h1>
+                    <a href="teatros.html" class="btn btn-secondary magnetic-btn reveal-mask"
+                        style="margin-top: 2rem; background-color: rgba(5, 10, 20, 0.6); backdrop-filter: blur(4px);">Teatros</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-controls">
+            <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </header>
+
+    <!-- Section: Biografía Preview -->
+    <section class="section bio-preview animate-on-scroll">
+        <div class="container bio-layout">
+            <div class="bio-text">
+                <h2 class="animate-on-scroll reveal-mask">Una Vida en el Escenario</h2>
+                <p>Desde los pequeños teatros de barrio hasta las grandes producciones nacionales, mi viaje ha sido una
+                    búsqueda constante de la verdad emocional.</p>
+                <a href="biografia.html" class="btn magnetic-btn">Leer Biografía completa</a>
+            </div>
+            <div class="bio-visuals">
+                <div class="image-stack">
+                    <img src="img/galeria/galeria1.jpg" alt="Actuación dramática" class="stack-img img-1">
+                    <img src="img/galeria/galeria2.jpg" alt="Ensayo teatral" class="stack-img img-2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Filmografía Highlight -->
+    <section class="section film-preview animate-on-scroll">
+        <div class="parallax-bg" style="background-image: url('img/hero/hero2.jpg');"></div>
+        <div class="container film-content">
+            <h2 class="animate-on-scroll reveal-mask">Filmografía Destacada</h2>
+            <p>Descubre mi trayectoria en cine y televisión.</p>
+            <div class="film-gallery-preview">
+                <!-- Creative hover cards would go here -->
+                <div class="film-card-preview">
+                    <img src="img/galeria/galeria3.jpg" alt="Escena de película">
+                    <div class="film-overlay">
+                        <a href="filmografia.html" class="btn-inverse">Ver Filmografía</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Contacto -->
+    <section id="contacto" class="section contact-section animate-on-scroll">
+        <div class="container contact-container">
+            <div class="contact-visual">
+                <img src="img/acerca/acerca.png" alt="Laura Zeledón Contacto" class="fluid-mask">
+            </div>
+            <div class="contact-form-wrapper">
+                <h2 class="animate-on-scroll reveal-mask">Hablemos</h2>
+                <p>Disponible para casting, colaboraciones y charlas.</p>
+
+                <form id="contact-form" class="styled-form">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn full-width magnetic-btn">Enviar Mensaje</button>
+                </form>
+
+                <div class="booking-cta">
+                    <h3>¿Te interesa trabajar conmigo?</h3>
+                    <a href="https://calendar.app.google/bFzd4Tv7oGRsrxZX8" target="_blank"
+                        class="btn btn-secondary magnetic-btn">
+                        <i class="far fa-calendar-alt"></i> Reservar Consulta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">LAURA ZELEDÓN</div>
+            <div class="social-icons">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Laura Zeledón. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;"><a href="privacidad.html"
+                    style="text-decoration: underline;">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/50600000000" target="_blank" class="fab fab--whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50600000000" class="fab fab--phone" aria-label="Llamar">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Tawk.to Script -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69633d7c987b03197cb20051/1jelqgcbd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <!-- Scripts -->
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge">
+        <img src="img/logo.png" alt="NextWeb CR Logo">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/anti-inspection.js"></script>
+    <script src="js/index.js"></script> <!-- Specific logic for homepage -->
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teatros | Laura Zeledón</title>
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .theater-list {
+            padding: var(--spacing-md) 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+
+        .theater-card {
+            background: var(--color-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .theater-header {
+            padding: var(--spacing-md);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(to right, rgba(212, 175, 55, 0.1), transparent);
+        }
+
+        .theater-name {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .theater-address {
+            font-family: var(--font-main);
+            color: #ddd;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .maps-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 400px;
+            /* Fixed height for maps */
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Facade Placeholder */
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            transition: filter 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .map-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .map-placeholder:hover::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .placeholder-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .waze-icon {
+            color: #33ccff;
+        }
+
+        .google-icon {
+            color: #ea4335;
+        }
+
+        @media (max-width: 768px) {
+            .maps-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+
+        .theater-featured-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">LAURA ZELEDÓN</a>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="biografia.html" class="nav-link">Biografía</a></li>
+                <li><a href="filmografia.html" class="nav-link">Filmografía</a></li>
+                <li><a href="teatros.html" class="nav-link active">Teatros</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container section text-center"
+        style="margin-top: var(--header-height); padding-top: var(--spacing-xl);">
+        <h1 class="reveal-mask">Teatros <span class="italic-accent">& Escenarios</span></h1>
+        <p class="reveal-mask" style="animation-delay: 0.2s;">MI PARTICIPACIÓN EN ESTOS RECINTOS.</p>
+    </header>
+
+    <main class="theater-immersive-container">
+
+        <!-- 1. Liberia -->
+        <section class="theater-scene animate-on-scroll">
+            <div class="scene-bg" style="background-image: url('img/teatros/teatrolaluz.png');"></div>
+            <div class="scene-overlay"></div>
+
+            <div class="container scene-content">
+                <div class="scene-text">
+                    <h2 class="theater-title-large">Teatro La Luz</h2>
+                    <span class="theater-location">Zi, Li</span>
+                    <p>200m este banco central.</p>
+
+                    <button class="map-trigger-btn map-trigger">
+                        <i class="fas fa-map-marker-alt"></i> Desplegar Ubicación
+                    </button>
+
+                    <div class="map-accordion-content">
+                        <div class="maps-grid">
+                            <!-- Google -->
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="google"
+                                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60617.60704605025!2d-85.51711382490151!3d10.629533388934833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f757d2a8a1c08e5%3A0xb2f8a494fb368393!2sProvincia%20de%20Guanacaste%2C%20Liberia!5e1!3m2!1ses-419!2scr!4v1769628204690!5m2!1ses-419!2scr">
+                                    <div class="placeholder-content">
+                                        <i class="fas fa-map-marked-alt placeholder-icon google-icon"></i>
+                                        <h3>Google Maps</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Waze -->
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="waze"
+                                    data-src="https://embed.waze.com/iframe?zoom=16&lat=10.636270&lon=-85.430546&ct=livemap">
+                                    <div class="placeholder-content">
+                                        <i class="fab fa-waze placeholder-icon waze-icon"></i>
+                                        <h3>Waze</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Cartago -->
+        <section class="theater-scene animate-on-scroll">
+            <div class="scene-bg" style="background-image: url('img/teatros/teatrolin.png');"></div>
+            <div class="scene-overlay"></div>
+
+            <div class="container scene-content right-align">
+                <div class="scene-text">
+                    <h2 class="theater-title-large">Teatro Lin</h2>
+                    <span class="theater-location">Aleas, Bi</span>
+                    <p>400 metros norte de restaurante food.</p>
+
+                    <button class="map-trigger-btn map-trigger">
+                        <i class="fas fa-map-marker-alt"></i> Desplegar Ubicación
+                    </button>
+
+                    <div class="map-accordion-content">
+                        <div class="maps-grid">
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="google"
+                                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60766.0012329061!2d-83.96638927949621!3d9.854204852301624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0df1021af2921%3A0xb5e5548558a39c52!2sProvincia%20de%20Cartago%2C%20Cartago!5e1!3m2!1ses-419!2scr!4v1769628282027!5m2!1ses-419!2scr">
+                                    <div class="placeholder-content"><i
+                                            class="fas fa-map-marked-alt placeholder-icon google-icon"></i>
+                                        <h3>Google Maps</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="waze"
+                                    data-src="https://embed.waze.com/iframe?zoom=13&lat=9.864166&lon=-83.921642&ct=livemap">
+                                    <div class="placeholder-content"><i
+                                            class="fab fa-waze placeholder-icon waze-icon"></i>
+                                        <h3>Waze</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Puntarenas -->
+        <section class="theater-scene animate-on-scroll">
+            <div class="scene-bg" style="background-image: url('img/teatros/teatrochin.png');"></div>
+            <div class="scene-overlay"></div>
+
+            <div class="container scene-content">
+                <div class="scene-text">
+                    <h2 class="theater-title-large">Teatro Chin</h2>
+                    <span class="theater-location">Chai, Lin</span>
+                    <p>100 metros este de mcdonalds.</p>
+
+                    <button class="map-trigger-btn map-trigger">
+                        <i class="fas fa-map-marker-alt"></i> Desplegar Ubicación
+                    </button>
+
+                    <div class="map-accordion-content">
+                        <div class="maps-grid">
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="google"
+                                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30371.47531201622!2d-84.84282060196878!3d9.978550118033002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa02eb96dada6b7%3A0x3f48bd110f83d5ec!2sProvincia%20de%20Puntarenas%2C%20Puntarenas!5e1!3m2!1ses-419!2scr!4v1769628403476!5m2!1ses-419!2scr">
+                                    <div class="placeholder-content"><i
+                                            class="fas fa-map-marked-alt placeholder-icon google-icon"></i>
+                                        <h3>Google Maps</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="waze"
+                                    data-src="https://embed.waze.com/iframe?zoom=14&lat=9.979155&lon=-84.829731&ct=livemap">
+                                    <div class="placeholder-content"><i
+                                            class="fab fa-waze placeholder-icon waze-icon"></i>
+                                        <h3>Waze</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Tamarindo -->
+        <section class="theater-scene animate-on-scroll">
+            <div class="scene-bg" style="background-image: url('img/teatros/teatroredstone.png');"></div>
+            <div class="scene-overlay"></div>
+
+            <div class="container scene-content right-align">
+                <div class="scene-text">
+                    <h2 class="theater-title-large">Teatro RedStone</h2>
+                    <span class="theater-location">Loello, State</span>
+                    <p>50 metros sur de tacobell.</p>
+
+                    <button class="map-trigger-btn map-trigger">
+                        <i class="fas fa-map-marker-alt"></i> Desplegar Ubicación
+                    </button>
+
+                    <div class="map-accordion-content">
+                        <div class="maps-grid">
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="google"
+                                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15170.466267769609!2d-85.84836965417702!3d10.3008884371251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e39409203c30f%3A0xbb189f5e2cc1f893!2sProvincia%20de%20Guanacaste%2C%20Tamarindo!5e1!3m2!1ses-419!2scr!4v1769628482557!5m2!1ses-419!2scr">
+                                    <div class="placeholder-content"><i
+                                            class="fas fa-map-marked-alt placeholder-icon google-icon"></i>
+                                        <h3>Google Maps</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="map-container">
+                                <div class="map-placeholder" data-platform="waze"
+                                    data-src="https://embed.waze.com/iframe?zoom=15&lat=10.297856&lon=-85.841417&ct=livemap">
+                                    <div class="placeholder-content"><i
+                                            class="fab fa-waze placeholder-icon waze-icon"></i>
+                                        <h3>Waze</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">LAURA ZELEDÓN</div>
+            <p class="copyright">&copy; 2026 Laura Zeledón. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;"><a href="privacidad.html"
+                    style="text-decoration: underline;">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/50600000000" target="_blank" class="fab fab--whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50600000000" class="fab fab--phone" aria-label="Llamar">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69633d7c987b03197cb20051/1jelqgcbd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge">
+        <img src="img/logo.png" alt="NextWeb CR Logo">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/anti-inspection.js"></script>
+</body>
+
+</html>

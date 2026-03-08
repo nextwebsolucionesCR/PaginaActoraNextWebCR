@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmografía | Laura Zeledón</title>
+    <!-- Fonts & Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .film-hero {
+            padding: var(--spacing-xl) 0 var(--spacing-md) 0;
+            text-align: center;
+        }
+
+        .film-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            padding-bottom: var(--spacing-xl);
+        }
+
+        .film-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--color-secondary);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            aspect-ratio: 2/3;
+            cursor: pointer;
+        }
+
+        .film-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            /* Gold glow */
+        }
+
+        .film-poster {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+        }
+
+        .film-info-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.4));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            transform: translateY(10px);
+        }
+
+        .film-card:hover .film-info-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .film-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .film-year {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-pdf {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            border: none;
+            padding: 0.8rem 1.2rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        .btn-pdf:hover {
+            background-color: white;
+            color: var(--color-bg);
+        }
+
+        @media (max-width: 768px) {
+            .film-info-overlay {
+                opacity: 1;
+                /* Always visible on mobile */
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 30%, transparent);
+                transform: translateY(0);
+            }
+
+            .film-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">LAURA ZELEDÓN</a>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="biografia.html" class="nav-link">Biografía</a></li>
+                <li><a href="filmografia.html" class="nav-link active">Filmografía</a></li>
+                <li><a href="teatros.html" class="nav-link">Teatros</a></li>
+                <li><a href="index.html#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container film-hero animate-on-scroll">
+        <h1>Filmografía</h1>
+        <p>Obras en las que he participado.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 3D Container (Desktop) -->
+        <div id="gallery-3d-container"></div>
+
+        <!-- 2D Grid (Mobile Fallback) -->
+        <div class="film-grid mobile-only-grid">
+
+            <!-- Film 1 -->
+            <article class="film-card animate-on-scroll">
+                <img src="img/filmografia/filme1.png" alt="Poster Film 1" class="film-poster liquid-hover">
+                <div class="film-info-overlay">
+                    <h2 class="film-title">Mi Inspiración</h2>
+                    <span class="film-year">2023 - Drama</span>
+                    <a href="recursos/film1.pdf" target="_blank" class="btn btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Ver Guion
+                    </a>
+                </div>
+            </article>
+
+            <!-- Film 2 -->
+            <article class="film-card animate-on-scroll">
+                <img src="img/filmografia/filme2.png" alt="Poster Film 2" class="film-poster liquid-hover">
+                <div class="film-info-overlay">
+                    <h2 class="film-title">Largo Camino</h2>
+                    <span class="film-year">2021 - Cortometraje</span>
+                    <a href="recursos/film2.pdf" target="_blank" class="btn btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Ver Guion
+                    </a>
+                </div>
+            </article>
+
+            <!-- Film 3 (Using duplicated image as requested) -->
+            <article class="film-card animate-on-scroll">
+                <img src="img/filmografia/filme3.png" alt="Poster Film 3" class="film-poster liquid-hover">
+                <div class="film-info-overlay">
+                    <h2 class="film-title">Flores De Junio</h2>
+                    <span class="film-year">2020 - Drama</span>
+                    <a href="recursos/film3.pdf" target="_blank" class="btn btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Ver Guion
+                    </a>
+                </div>
+            </article>
+
+            <!-- Film 4 -->
+            <article class="film-card animate-on-scroll">
+                <img src="img/filmografia/filme4.png" alt="Poster Film 4" class="film-poster liquid-hover">
+                <div class="film-info-overlay">
+                    <h2 class="film-title">Raíces de Fuego</h2>
+                    <span class="film-year">2019 - Documental</span>
+                    <a href="recursos/film4.pdf" target="_blank" class="btn btn-pdf">
+                        <i class="fas fa-file-pdf"></i> Ver Guion
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">LAURA ZELEDÓN</div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Laura Zeledón. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;"><a href="privacidad.html"
+                    style="text-decoration: underline;">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+    <!-- Floating Actions -->
+    <div class="floating-actions">
+        <a href="https://wa.me/50600000000" target="_blank" class="fab fab--whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+50600000000" class="fab fab--phone" aria-label="Llamar">
+            <i class="fas fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Tawk.to -->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/69633d7c987b03197cb20051/1jelqgcbd';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!-- Three.js (via CDN for reliability) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <!-- Developer Badge -->
+    <a href="#" class="developer-badge">
+        <img src="img/logo.png" alt="NextWeb CR Logo">
+        <span>Desarrollado por <strong>NextWeb CR</strong></span>
+    </a>
+
+    <script src="js/main.js"></script>
+    <script src="js/anti-inspection.js"></script>
+</body>
+
+</html>
